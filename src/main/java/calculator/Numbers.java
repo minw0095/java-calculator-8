@@ -5,16 +5,16 @@ import java.util.List;
 
 public class Numbers {
 
-    private final String numbers;
+    private final int[] numbers;
     private final Separator separator;
 
-    public Numbers(String numbers, Separator separator) {
-
-        this.numbers = numbers;
+    public Numbers(Separator separator) {
         this.separator = separator;
+        this.numbers = setNumbers();
+        checkPositive();
     }
 
-    public int[] setNumbers(){
+    private int[] setNumbers(){
 
         try {
             return Arrays.stream(separator.findNumbers()
@@ -26,4 +26,15 @@ public class Numbers {
             throw new IllegalArgumentException();
         }
     }
+
+    public int[] getNumbers() {
+        return setNumbers();
+    }
+
+    public void checkPositive() {
+        if(Arrays.stream(numbers).anyMatch(e->e<0)){
+            throw new IllegalArgumentException();
+        }
+    }
+
 }

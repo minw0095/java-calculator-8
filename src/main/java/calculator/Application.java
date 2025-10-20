@@ -6,8 +6,8 @@ public class Application {
         String n = InputSystem.getInstance().input();
         Separator separator = new Separator(n);
 
-        Numbers numbers = new Numbers(n, separator);
-        Calculator calculator = new Calculator(numbers.setNumbers());
+        Numbers numbers = new Numbers(separator);
+        Calculator calculator = new Calculator(numbers.getNumbers());
         calculator.plus();
     }
 }
