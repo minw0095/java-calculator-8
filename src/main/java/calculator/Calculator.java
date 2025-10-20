@@ -11,7 +11,7 @@ public class Calculator {
     }
 
     public void plus() {
-        System.out.println("결과  : " +Arrays.stream(numbers).sum());
+        System.out.println("결과 : " +Arrays.stream(numbers).sum());
 
     }
 }
