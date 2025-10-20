@@ -11,9 +11,13 @@ public class Separator {
         this.numbers = numbers;
     }
 
+    private Matcher createCustomMatcher(String regex, String numbers) {
+        Pattern pattern = Pattern.compile(regex);
+        return pattern.matcher(numbers);
+    }
+
     public String findSeparator(){
-        Pattern pattern = Pattern.compile("//(.*?)\\\\n");
-        Matcher matcher = pattern.matcher(numbers);
+        Matcher matcher  = createCustomMatcher("//(.*?)\\\\n", numbers);
 
         if (matcher.find()) {
             System.out.println(matcher.group(1).trim());
@@ -24,8 +28,7 @@ public class Separator {
     }
 
     public String findNumbers(){
-        Pattern pattern = Pattern.compile("//.*?\\\\n(.+)$");
-        Matcher matcher = pattern.matcher(numbers);
+        Matcher matcher  = createCustomMatcher("//.*?\\\\n(.+)$", numbers);
 
         if (matcher.find()) {
             return matcher.group(1);
