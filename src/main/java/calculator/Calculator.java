@@ -10,7 +10,8 @@ public class Calculator {
         this.numbers = number;
     }
 
-    public int plus() {
-        return Arrays.stream(numbers).sum();
+    public void plus() {
+        System.out.println("결과  : " +Arrays.stream(numbers).sum());
+
     }
 }

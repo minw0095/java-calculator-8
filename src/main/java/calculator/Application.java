@@ -8,8 +8,6 @@ public class Application {
 
         Numbers numbers = new Numbers(n, separator);
         Calculator calculator = new Calculator(numbers.setNumbers());
-
-        System.out.println(calculator.plus());
-
+        calculator.plus();
     }
 }
