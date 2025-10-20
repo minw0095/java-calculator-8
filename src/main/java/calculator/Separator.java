@@ -24,7 +24,6 @@ public class Separator {
     }
 
     public String findNumbers(){
-//        return numbers.split("//(.*?)\\n");
         Pattern pattern = Pattern.compile("//.*?\\\\n(.+)$");
         Matcher matcher = pattern.matcher(numbers);
 
